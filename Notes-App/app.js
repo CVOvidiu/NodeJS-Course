@@ -24,4 +24,24 @@ yargs.command({
     }
 });
 
+/*
+    Challenge: Remove note functionality
+*/
+
+
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv) {
+        notesUtil.removeNote(argv.title);
+    }
+});
+
 yargs.parse();
