@@ -2,6 +2,13 @@ const chalk = require('chalk');
 
 const fs = require('fs');
 
+const listNotes = () => {
+    const notes = loadNotes();
+    notes.forEach((note, i) => {
+        console.log(chalk.bgMagenta(`Note #${i + 1}\n`) + chalk.bold(' Title: ') + `${note.title}\n` + chalk.bold(' Content: ') + `${note.body}\n`);
+    });
+};
+
 const addNote = function(title, body) {
     const notes = loadNotes();
     const duplicateNotes = notes.filter(note => note.title === title);
@@ -48,6 +55,7 @@ const loadNotes = function() {
 };
 
 module.exports = {
+    listNotes: listNotes,
     addNote: addNote,
     removeNote: removeNote
 };

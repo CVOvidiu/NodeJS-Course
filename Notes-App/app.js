@@ -4,6 +4,23 @@ const notesUtil = require('./notes.js');
 
 yargs.version('1.0.0');
 
+/*
+    Goal: Wire up list command
+    1. Create and export listNotes from notes.js
+        - "Your notes" using chalk
+        - Print note title for each note
+    2. Call listNotes from command handler
+    3. Test your work! 
+*/
+
+yargs.command({
+    command: 'list',
+    describe: 'List all notes',
+    handler() {
+        notesUtil.listNotes();
+    }
+});
+
 yargs.command({
     command: 'add',
     describe: 'Add a new note',
@@ -23,11 +40,6 @@ yargs.command({
         notesUtil.addNote(argv.title, argv.body);
     }
 });
-
-/*
-    Challenge: Remove note functionality
-*/
-
 
 yargs.command({
     command: 'remove',
