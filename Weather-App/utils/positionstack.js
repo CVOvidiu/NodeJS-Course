@@ -7,7 +7,7 @@ const positionstack = (address, callback) => {
     request({url: url, json: true}, (err, res) => {
         if(err)
             callback(`Unable to connect to location services.`, undefined); // We want to do something when with the error
-        else if(res.body.data.length === 0)
+        else if(res.body.error)
             callback(`Unable to find location`, undefined);
         else
             callback(undefined, {
