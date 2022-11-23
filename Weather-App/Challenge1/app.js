@@ -1,3 +1,7 @@
+/*
+    Goal: Use the weatherstack API to generate the string with temperatures for Bucharest.
+*/
+
 const request = require('request');
 
 const url = 'http://api.weatherstack.com/current?access_key=yourKey&query=44.4268,26.1025';
